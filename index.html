@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="utf-8" />
+        <title>Product Card</title>
+        <link rel="stylesheet"                                 href="style.css"/>
+    </head>
+    <body>
+        <h1 id="text-output"></h1>
+        <p id="time"></p>
+        <p id="date"></p>
 
-  <title>HTML</title>
+<script>
+  function updateTime() {
+    const now = new Date();
+    document.getElementById('time').textContent = 
+      now.toLocaleTimeString('fa-IR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+  }
   
-  <!-- HTML -->
-  
+  setInterval(updateTime, 1000);
+  updateTime();
+  // یک Auto Writer ساده برای تایپ خودکار متن
+function autoWriter(element, text, speed = 50) {
+  let i = 0;
+  const timer = setInterval(() => {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, speed);
+}
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
-</head>
+// استفاده:
+const output = document.getElementById('text-output');
+autoWriter(output, 'این یک متن نمونه است که به صورت خودکار تایپ می‌شود...');
+const date = new Date();
+const options = {
+  weekday:'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  calendar: 'persian'
+};
 
-<body>
-  <p>Nothing to see here...</p>
-  <!-- Project -->
-  <script src="main.js"></script>
-</body>
+document.querySelector("#date").innerText = date.toLocaleDateString('fa-IR', options);
+</script>
+
+    <script src="script.js"><script>
+    </body>
 </html>
