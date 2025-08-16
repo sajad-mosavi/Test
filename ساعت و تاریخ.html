@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ساعت</title>
+        <style type="text/css" media="all">
+            body {
+                background-color: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+            .container {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="container"></h1>
+        <script type="text/javascript" charset="utf-8">
+            const container = document.querySelector(".container");
+
+function updateTime() {
+  const now = new Date();
+  container.textContent =
+  now.toLocaleTimeString("fa-IR", {
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  weekday:'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  calendar: 'persian'
+    
+  });
+}
+updateTime()
+        </script>
+    </body>
+</html>
