@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+  </head>
+  <body>
+  <p id="demo"></p>
+<script>
+setInterval(function(){
+ let currentDate = +new Date().getTime();
+ let endDate = +new Date(2025,7,30).getTime()
+let time =Math.floor(endDate - currentDate)
+ let s = Math.floor((time/1000)%60)
+ let m = Math.floor((time/(1000*60))%60)
+let h =  Math.floor(time/(1000*60*60)%24 )
+ s = s<10 ? `0${s}` : s
+ m = m<10 ? `0${m}` : m
+ h = h<10 ? `0${h}` : h  
+let d =  Math.floor(time/(1000*60*60*24) )
+demo.innerHTML = `${s} : ${m} : ${h} : ${d}`
+
+},1000)
+</script>
+  </body>
+</html>
